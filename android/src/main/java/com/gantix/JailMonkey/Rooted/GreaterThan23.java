@@ -8,7 +8,7 @@ public class GreaterThan23 implements CheckApiVersion {
 
     @Override
     public boolean checkRooted() {
-        return checkRootMethod1() || checkRootMethod2();
+        return checkRootMethod1() || checkRootMethod2() || checkRootMethod3();
     }
 
     private boolean checkRootMethod1() {
@@ -41,4 +41,10 @@ public class GreaterThan23 implements CheckApiVersion {
             if (process != null) process.destroy();
         }
     }
+
+    public boolean checkRootMethod3() {
+        String buildTags = android.os.Build.TAGS;
+        return buildTags != null && buildTags.contains("test-keys");
+    }
+    
 }
